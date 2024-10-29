@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='mapaction_logging_module',
-    version='0.2.1',
+    version='0.2.2',
     author='Harry Sibbenga',             
     author_email='hsibbenga@mapaction.org',
     description='A structured logging module for MapAction applications with a Dashboard',
@@ -18,6 +18,6 @@ setup(
         "License :: OSI Approved :: MIT License",  
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.9',           
+    python_requires='>=3.6',           
     install_requires=["streamlit", "pandas"]              
 )
