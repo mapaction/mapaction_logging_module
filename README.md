@@ -1,4 +1,3 @@
-```markdown
 # MapAction Logging Module
 
 This module provides a structured and flexible way to log events in your MapAction applications, including the ability to store logs in a database and visualize them with a Streamlit dashboard.
