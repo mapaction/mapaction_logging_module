@@ -8,7 +8,7 @@ setup(
     version='0.1.0',
     author='Harry Sibbenga',             
     author_email='hsibbenga@mapaction.org',
-    description='A structured logging module for MapAction applications',
+    description='A structured logging module for MapAction applications with a Dashboard',
     long_description=long_description,  
     long_description_content_type="text/markdown", 
     url='https://github.com/mapaction/mapaction_logging_module.git',  
@@ -19,5 +19,5 @@ setup(
         "Operating System :: OS Independent",
     ],
     python_requires='>=3.9',           
-    install_requires=[]              
+    install_requires=["streamlit", "pandas"]              
 )

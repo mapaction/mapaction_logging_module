@@ -8,4 +8,5 @@ mapaction_logging/status_codes.py
 mapaction_logging_module.egg-info/PKG-INFO
 mapaction_logging_module.egg-info/SOURCES.txt
 mapaction_logging_module.egg-info/dependency_links.txt
+mapaction_logging_module.egg-info/requires.txt
 mapaction_logging_module.egg-info/top_level.txt
