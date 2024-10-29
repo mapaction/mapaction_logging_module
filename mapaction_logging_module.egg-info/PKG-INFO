@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: mapaction-logging-module
-Version: 0.2.2
+Version: 0.2.4
 Summary: A structured logging module for MapAction applications with a Dashboard
 Home-page: https://github.com/mapaction/mapaction_logging_module.git
 Author: Harry Sibbenga
