@@ -1,14 +1,16 @@
+```markdown
 # MapAction Logging Module
 
-This module provides a structured and flexible way to log events in your MapAction applications, including the ability to store logs in a database for later analysis.
+This module provides a structured and flexible way to log events in your MapAction applications, including the ability to store logs in a database and visualize them with a Streamlit dashboard.
 
 ## Features
 
 *   **Status Codes:** Uses an `Enum` to define clear and organized status codes for various events (success, errors, no data, etc.).
 *   **Detailed Logging:** Captures essential information like timestamps, country, task name, status code, log message, and optional additional data.
-*   **Database Storage:** Logs events to a database (SQLite for local development, easily configurable for other databases).
+*   **Database Storage:** Logs events to a SQLite database for easy analysis and retrieval.
 *   **Integration with Python's `logging`:**  Leverages the built-in `logging` module for flexibility in log handling and output.
 *   **Easy to Use:** Provides a simple `log_event` function to handle logging operations.
+*   **Streamlit Dashboard:** Includes a Streamlit app (`dashboard/mapaction_logging_app.py`) to visualize and filter log data.
 
 ## Installation
 
@@ -17,6 +19,8 @@ pip install .
 ```
 
 ## Usage
+
+**1. Logging events:**
 
 ```python
 from mapaction_logging import log_event, StatusCode 
@@ -29,22 +33,19 @@ log_event(
     log_message="User registered successfully", 
     additional_data={"user_id": 123}
 )
+```
 
-log_event(
-    country="UK",
-    task_name="process_payment",
-    status_code=StatusCode.ERROR_DATABASE,
-    log_message="Failed to update payment status in the database",
-    level=logging.ERROR 
-)
+**2. Running the dashboard:**
+
+```bash
+streamlit run dashboard/mapaction_logging_app.py
 ```
 
 ## Configuration
 
 *   **Database:**
-    *   The module is set up to use SQLite for local development.  
-    *   To use a different database, modify the database connection details in the `log_event` function (in `mapaction_logging/logger.py`).
-    *   Consider using an ORM or a separate data access layer for easier database switching.
+    *   The module uses an SQLite database (`mapaction_logging.db`) for storing logs.
+    *   The database table is automatically created when the module is imported.
 
 *   **Logging Levels:**
     *   Uses Python's standard logging levels (`logging.DEBUG`, `logging.INFO`, etc.).
@@ -90,7 +91,9 @@ mapaction_logging_module/
 │   ├── __init__.py
 │   ├── logger.py
 │   ├── status_codes.py
-│   └── database.py 
+│   └── database.py
+├── dashboard/
+│   └── mapaction_logging_app.py 
 └── setup.py
 ```
 
@@ -99,7 +102,7 @@ mapaction_logging_module/
 The `requirements.txt` file lists the dependencies for this module:
 
 ```
-sqlite3  # Or your preferred database library
+streamlit
 ```
 
 ## Contributing
