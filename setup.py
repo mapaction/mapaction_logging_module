@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name='mapaction_logging_module',
-    version='0.3.0',
+    version='0.2.1',
     author='Harry Sibbenga',             
     author_email='hsibbenga@mapaction.org',
     description='A structured logging module for MapAction applications with a Dashboard',
