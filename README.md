@@ -15,7 +15,7 @@ This module provides a structured and flexible way to log events in your MapActi
 ## Installation
 
 ```bash
-pip install . 
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -102,7 +102,7 @@ mapaction_logging_module/
 The `requirements.txt` file lists the dependencies for this module:
 
 ```
-streamlit
+streamlit pandas
 ```
 
 ## Contributing
