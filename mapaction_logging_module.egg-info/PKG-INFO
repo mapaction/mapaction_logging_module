@@ -5,8 +5,6 @@ Summary: A structured logging module for MapAction applications with a Dashboard
 Home-page: https://github.com/mapaction/mapaction_logging_module.git
 Author: Harry Sibbenga
 Author-email: hsibbenga@mapaction.org
-License: UNKNOWN
-Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Operating System :: OS Independent
@@ -61,4 +59,3 @@ Contributions are welcome! See the GitHub repository for more details.
 ## License
 
 MIT License
-
