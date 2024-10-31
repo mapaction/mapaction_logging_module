@@ -1,4 +1,6 @@
 from enum import Enum
+import logging
+from requests import Response
 
 class StatusCode(Enum):
     """
@@ -22,3 +24,22 @@ class StatusCode(Enum):
     BAD_GATEWAY = 502
     SERVICE_UNAVAILABLE = 503
     GATEWAY_TIMEOUT = 504
+
+    @staticmethod
+    def from_response(response: Response) -> 'StatusCode':
+        """
+        Get status code from a requests.Response object.
+
+        :param response: The response object.
+        :return: The corresponding StatusCode enum member, or None if unrecognised.
+        """
+        try:
+            status_code = response.status_code
+            logging.debug(f"Status code from response: {status_code}")
+            return StatusCode(status_code)
+        except ValueError as e:
+            logging.error(f"Unrecognized status code: {response.status_code}, error: {e}")
+            return None
+        except AttributeError as e:
+            logging.error(f"Invalid response object: {e}")
+            return None
