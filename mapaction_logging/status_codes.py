@@ -4,16 +4,8 @@ from requests import Response
 
 class StatusCode(Enum):
     """
-    Defines status codes for logging events.
+    Defines HTTP status codes for logging events.
     """
-    SUCCESS = 0
-    ERROR_GENERIC = 100  # General error
-    ERROR_DATABASE = 101 
-    ERROR_NETWORK = 102
-    ERROR_FILE_IO = 103
-    ERROR_VALIDATION = 104 
-    NO_DATA_FOUND = 200
-
     OK = 200
     CREATED = 201
     ACCEPTED = 202
