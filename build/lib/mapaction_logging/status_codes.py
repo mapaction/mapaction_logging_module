@@ -24,22 +24,28 @@ class StatusCode(Enum):
     BAD_GATEWAY = 502
     SERVICE_UNAVAILABLE = 503
     GATEWAY_TIMEOUT = 504
+    UNKNOWN = -1  # Default for unrecognized status codes
 
     @staticmethod
-    def from_response(response: Response) -> 'StatusCode':
+    def from_response(response: Response, log: bool = True) -> 'StatusCode':
         """
-        Get status code from a requests.Response object.
+        Get status code from a Response object.
 
         :param response: The response object.
-        :return: The corresponding StatusCode enum member, or None if unrecognised.
+        :param log: Log the status code retrieval.
+        :return: The corresponding StatusCode enum member, or StatusCode.UNKNOWN.
         """
         try:
             status_code = response.status_code
-            logging.debug(f"Status code from response: {status_code}")
+            if log:
+                logging.debug(f"Status code from response: {status_code}")
             return StatusCode(status_code)
         except ValueError as e:
-            logging.error(f"Unrecognized status code: {response.status_code}, error: {e}")
-            return None
+            if log:
+                logging.error(f"Unrecognized status code: {response.status_code}")
+                logging.error(f"Error: {e}")
+            return StatusCode.UNKNOWN
         except AttributeError as e:
-            logging.error(f"Invalid response object: {e}")
-            return None
+            if log:
+                logging.error(f"Invalid response object: {e}")
+            return StatusCode.UNKNOWN
